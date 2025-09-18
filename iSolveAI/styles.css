@@ -1,9 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Poppins, Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: #f5f7fa;
-    width: 320px;
+    width: 400px;
 }
 
 .popup-container {
@@ -36,14 +36,15 @@ body {
 }
 
 textarea {
-    width: 100%;
+    width: 95%;
+    max-width: 380px;
     height: 70px;
     resize: none;
     padding: 8px;
     border-radius: 6px;
     border: 1px solid #ccc;
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-right: 20px;
 }
 
 button {
@@ -88,4 +89,22 @@ pre {
 
 .hidden {
     display: none;
+}
+
+#copyBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* space between icon and text */
+  background-color: #1f2937;
+  color: #f9fafb;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#copyBtn i {
+  font-size: 16px; /* icon size */
+  color: #f9fafb;
 }

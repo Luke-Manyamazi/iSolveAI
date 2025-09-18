@@ -1,19 +1,16 @@
+// Create context menu
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "analyzeError",
     title: "Analyze Error with iSolveAI",
-    contexts: ["selection"],
+    contexts: ["selection"]
   });
 });
 
+// Handle context menu click
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "analyzeError") {
-    chrome.scripting.executeScript({
-      target: { tabId: tab.id },
-      func: (selectedText) => {
-        chrome.runtime.sendMessage({ errorText: selectedText });
-      },
-      args: [info.selectionText],
-    });
+    // Send selected text to content script
+    chrome.tabs.sendMessage(tab.id, { errorText: info.selectionText });
   }
 });
