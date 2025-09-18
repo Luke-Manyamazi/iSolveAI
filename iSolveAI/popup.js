@@ -5,6 +5,11 @@ const copyBtn = document.getElementById("copyBtn");
 const closeBtn = document.getElementById("closeBtn");
 const errorTextArea = document.getElementById("errorText");
 
+// Guard: if essential elements are missing, don't initialize handlers
+if (!analyzeBtn || !resultDiv || !errorTextArea) {
+  console.warn("popup.js: missing required DOM elements");
+}
+
 // Analyze Error Function
 async function analyzeError(errorText) {
   resultDiv.textContent = "🔍 Analyzing error...";
@@ -25,21 +30,25 @@ async function analyzeError(errorText) {
       explanation = response.output_text || "⚠️ No explanation generated.";
     } else {
       // Send to backend (Gemini API)
-      const res = await fetch("http://localhost:3000/analyze", {
+      const API_URL = "https://2v26rfw8ph.execute-api.eu-north-1.amazonaws.com/prod/analyze";
+
+      const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ errorText }),
+        // keep default credentials/mode; backend should handle CORS
       });
 
+      if (!res.ok) {
+        throw new Error(`Backend responded with ${res.status} ${res.statusText}`);
+      }
+
       const data = await res.json();
-      if (data.explanation) {
+      if (data && data.explanation) {
         explanation = data.explanation;
-      } else if (data.error) {
-        explanation =
-          "⚠️ Error from backend: " +
-          (typeof data.error === "string"
-            ? data.error
-            : JSON.stringify(data.error));
+      } else if (data && data.error) {
+        explanation = "⚠️ Error from backend: " +
+          (typeof data.error === "string" ? data.error : JSON.stringify(data.error));
       } else {
         explanation = "⚠️ No explanation generated.";
       }

@@ -43,10 +43,12 @@ chrome.runtime.onMessage.addListener(async (request) => {
   let explanation = "No explanation available.";
   try {
     // Call backend
-    const res = await fetch("http://localhost:3000/analyze", {
+    const API_URL = "https://2v26rfw8ph.execute-api.eu-north-1.amazonaws.com/prod/analyze";
+
+    const res = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ errorText: request.errorText })
+      body: JSON.stringify({ errorText })
     });
     const data = await res.json();
 
