@@ -74,8 +74,8 @@ bash
 Copy code
 node index.js
 Ensure the URL in popup.js matches your backend (http://localhost:3000/analyze).
-
-🛠 How It Works
+```
+## 🛠 How It Works
 User types or selects an error message.
 
 Clicks Analyze (or presses Enter).
@@ -86,7 +86,7 @@ AI returns a clear explanation + step-by-step troubleshooting.
 
 Result is displayed in a styled card in the popup.
 
-🎨 UI Features
+## 🎨 UI Features
 Modern popup with header and close button.
 
 Result card with scrollable, readable output.
@@ -95,7 +95,7 @@ Copy to clipboard button.
 
 Enter key triggers analysis (Shift+Enter for new line).
 
-⚡ Future Improvements
+## ⚡ Future Improvements
 Dark mode toggle.
 
 Categorize errors by system type (Windows, Linux, Web).
@@ -106,10 +106,10 @@ Deploy backend to a free cloud service (Vercel, Render, Railway).
 
 Add more AI models for advanced troubleshooting.
 
-📜 License
-This project is open source under the MIT License. See the LICENSE file for details.
+## 📜 License
+This project is open source under the MIT License.
 
-👨‍💻 Author
+## 👨‍💻 Author
 Luke Manyamazi
 IT Support Technician | Software Engineering Student
 GitHub | Portfolio
