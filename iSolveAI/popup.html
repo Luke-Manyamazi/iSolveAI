@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iSolveAI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="popup-container">
+      <div class="popup-header">
+        <h2>iSolveAI</h2>
+        <button id="closeBtn" class="close-btn">&times;</button>
+      </div>
+
+      <textarea
+        id="errorText"
+        placeholder="Paste or type an error message..."
+      ></textarea>
+      <button id="analyzeBtn">🔍 Analyze</button>
+
+      <div id="resultCard" class="result-card hidden">
+        <h3>Analysis Result</h3>
+        <pre id="result"></pre>
+        <button id="copyBtn">📋 Copy</button>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

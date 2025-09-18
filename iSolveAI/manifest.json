@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "iSolveAI",
+  "version": "1.0",
+  "description": "AI-powered IT troubleshooting assistant",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["contextMenus", "activeTab", "scripting"]
+}
